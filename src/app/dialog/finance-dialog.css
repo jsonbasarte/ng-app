@@ -1,0 +1,23 @@
+ .mat-column-name {
+   border-right: 1px solid grey;
+   align-self: stretch;
+ }
+
+ .mat-column-asEnteredOnDeal {
+   border-right: 1px solid grey;
+   align-self: stretch;
+   text-align: right;
+ }
+
+ .mat-column-financeValue {
+   border-right: 1px solid grey;
+   align-self: stretch;
+   text-align: right;
+ }
+
+ .finance-value-input {
+   height: 30px;
+   padding-right: 5px;
+   width: 90px;
+   box-shadow: none;
+ }

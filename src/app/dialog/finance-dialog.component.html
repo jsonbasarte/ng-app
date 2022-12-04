@@ -1,0 +1,28 @@
+<mat-dialog-content class="mat-typography" style="border-bottom: 1px solid rgba(0, 0, 0, 0.12); padding-bottom: 15px;">
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let item"> {{item.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="asEnteredOnDeal">
+            <th mat-header-cell *matHeaderCellDef> As Entered on Deal </th>
+            <td mat-cell *matCellDef="let item"> {{item.value}} </td>
+        </ng-container>
+        <ng-container matColumnDef="financeValue">
+            <th mat-header-cell *matHeaderCellDef> Finance Value </th>
+            <td mat-cell *matCellDef="let item" (click)="editItemField(item)">
+                <span *ngIf="!item.isEdit; else editField">{{ item.financeValue }}</span>
+                <ng-template #editField>
+                    <input matInput class="finance-value-input" [(ngModel)]="item.financeValue"
+                        (blur)="hideItemField(item)" (keyup.enter)="hideItemField(item)" #inputField>
+                </ng-template>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-stroked-button [mat-dialog-close]="true" style="margin-right: 20px" (click)="saveFinance()"> Save
+    </button>
+</mat-dialog-actions>
